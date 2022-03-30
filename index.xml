@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Hugo website</title>
+    <title>Zhili&#39;s Website website</title>
     <link>/</link>
-    <description>Recent content on A Hugo website</description>
+    <description>Recent content on Zhili&#39;s Website website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>/2022/03/30/hello-world/</link>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/03/30/hello-world/</guid>
+      <description>This is a testing for the first blog in this website.</description>
+    </item>
+    
     <item>
       <title>Hello R Markdown</title>
       <link>/2020/12/01/hello-r-markdown/</link>
@@ -29,12 +38,18 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
-      <title>About</title>
+      <title>About Me</title>
       <link>/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+      <description>
+I am a Ph.D. student at Department of Statistics, Iowa State University, supervised by Dr. Peng Liu. Prior to entering ISU, I received my Bachelor&amp;rsquo;s Degree in Economics and Mathematics from Wuhan University, and Master&amp;rsquo;s Degree in Statistics from University of California, Davis.
+Research Interest:   Applied statistics
+  Machine learning
+  High dimensional data analysis
+  Clustering
+  </description>
     </item>
     
     <item>
@@ -44,6 +59,38 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
       <guid>/2015/01/01/lorem-ipsum/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>Email   zlqiao@iastate.edu
+  zlqiao819@gmail.com
+  Office 3414 Snedecor Hall
+Ames, IA, 50011-1090</description>
+    </item>
+    
+    <item>
+      <title>CV</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>Below is my CV (02/2022): CV</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/</guid>
+      <description>My research focuses on studying specific characteristics of biological data:
+Poisson hurdle model-based clustering for microbiome data (Submitted to Bioinformatics)
+ We developed a Poisson hurdle model-based clustering method for count datasets to deal with its high sparsity.  Dirichlet Multinomial Biclustering for Compositional Microbiome Data  To mimic the sampling structure of microbiome datasets, we introduce a model-based biclustering method based on a Dirichlet Multinomial dstribution.  Bayesian Feature Selection and Causal Inference for Group Structured Data   In high-dimensional regression with subgroups of observations, we try to identify differentially expressed features by assigning a joint Lasso penalty.</description>
     </item>
     
   </channel>
