@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.96.0" />
 
 
-<title>Hello R Markdown - Zhili&#39;s Website website</title>
-<meta property="og:title" content="Hello R Markdown - Zhili&#39;s Website website">
+<title>Using blogdown - Zhili&#39;s Website website</title>
+<meta property="og:title" content="Using blogdown - Zhili&#39;s Website website">
 
 
   <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -71,55 +71,32 @@
     <span class="article-duration">1 min read</span>
     
 
-    <h1 class="article-title">Hello R Markdown</h1>
+    <h1 class="article-title">Using blogdown</h1>
 
     
-    <span class="article-date">2020-12-01</span>
+    <span class="article-date">2022-04-02</span>
     
 
     <div class="article-content">
-      
-
-
-<div id="r-markdown" class="section level1">
-<h1>R Markdown</h1>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932</code></pre>
-</div>
-<div id="including-plots" class="section level1">
-<h1>Including Plots</h1>
-<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
-<pre class="r"><code>par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
-  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
-  init.angle = -50, border = NA
-)</code></pre>
-<div class="figure"><span style="display:block;" id="fig:pie"></span>
-<img src="/2020/12/01/hello-r-markdown/index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption">
-Figure 1: A fancy pie chart.
-</p>
-</div>
-</div>
+      <p>Reminders about constructing blogs:</p>
+<ol>
+<li>To generate a new blog:</li>
+</ol>
+<pre tabindex="0"><code class="language-{r}" data-lang="{r}">blogdown::new_post(title = &#39;Post Title&#39;, author = &#39;Your Name&#39;)
+</code></pre><ol start="2">
+<li>To include an image, first put the image in a folder (here it&rsquo;s named <code>image</code>) under directory <code>content</code>, and use the following code:</li>
+</ol>
+<p><code>&lt;img alt = '' height='400' width='400' src='/images/Pikachu.png' /&gt;</code></p>
+<img alt = '' height='400' width='400' src='/images/Pikachu.png' />
+<ol start="3">
+<li>To include a link:</li>
+</ol>
+<p><code>[Zhili's Website](http://zhiliqiao.github.io)</code></p>
+<p><a href="http://zhiliqiao.github.io">Zhili&rsquo;s Website</a></p>
+<ol start="4">
+<li>To rebuild the site and show:</li>
+</ol>
+<p><code>blogdown::build_site()</code> $+$ <code>blogdown::serve_site()</code></p>
 
     </div>
   </article>
@@ -156,6 +133,9 @@ Figure 1: A fancy pie chart.
 
 
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
   </body>

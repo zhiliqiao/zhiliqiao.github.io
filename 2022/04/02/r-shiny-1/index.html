@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+<title>R shiny #1 - Zhili&#39;s Website website</title>
+<meta property="og:title" content="R shiny #1 - Zhili&#39;s Website website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/Photo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/awards/">Awards</a></li>
+    
+    <li><a href="/research/">Research</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/zhiliqiao">GitHub</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">R shiny #1</h1>
+
+    
+    <span class="article-date">2022-04-02</span>
+    
+
+    <div class="article-content">
+      <p>Below uses dataset <code>mtcars</code> as the dataset.</p>
+<p>An R shiny app is constructed by 2 major parts, <strong>UI</strong> and <strong>SERVER</strong>: <code>shinyApp(ui = UI, server = SERVER)</code></p>
+<h2 id="1-ui">1. UI</h2>
+<p><strong>UI</strong> is how your dashboard appears to the user. It can include the following 3 options: <code>UI = dashboardPage(header = Header, sidebar = Sidebar, body = Body)</code></p>
+<ol>
+<li>
+<p>header:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Header <span style="color:#f92672">=</span> <span style="color:#a6e22e">dashboardHeader</span>(title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;My Title&#39;</span>, titleWidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><p>Title of the dashboard page (topleft).</p>
+<p>Can also include a dropdown menu on the topright. See help file for function <code>dashboardHeader()</code></p>
+</li>
+<li>
+<p>sidebar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Sidebar <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dashboardSidebar</span>(<span style="color:#a6e22e">sidebarMenu</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">menuItem</span>(<span style="color:#e6db74">&#34;Name1&#34;</span>, tabName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name1content&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">menuItem</span>(<span style="color:#e6db74">&#34;Name2&#34;</span>, tabName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name2content&#34;</span>)
+</span></span><span style="display:flex;"><span>))
+</span></span></code></pre></div><p>Creates a sidebar dashboard menu. Different selections (<code>Name1</code> or <code>Name2</code>) will show on the menu, leading to different main panels. <code>tabName = &quot;Name1content&quot;</code> links to the body of <code>Name1</code>&rsquo;s page in the <strong>body</strong> part of the UI.</p>
+</li>
+<li>
+<p>Body</p>
+<p>The main body of the panel. Can include a lot of options:</p>
+<ul>
+<li>
+<p>Selector with a dropdown selection list;</p>
+</li>
+<li>
+<p>Check boxes;</p>
+</li>
+<li>
+<p>Buttons;</p>
+</li>
+<li>
+<p>Tables;</p>
+</li>
+<li>
+<p>Plots;</p>
+</li>
+<li>
+<p>&hellip;</p>
+</li>
+</ul>
+<p>For each selection of the sidebar (<code>Name1</code> or <code>Name2</code> in this case), need to create a separate body, and use <code>tabName = &quot;Name1content&quot;/&quot;Name2content&quot;</code> to link them:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Name1body <span style="color:#f92672">=</span> <span style="color:#a6e22e">tabItem</span>(
+</span></span><span style="display:flex;"><span>  tabName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name1content&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### what you want to show for Name1</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Name2body <span style="color:#f92672">=</span> <span style="color:#a6e22e">tabItem</span>(
+</span></span><span style="display:flex;"><span>  tabName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name2content&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### what you want to show for Name2</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Body <span style="color:#f92672">=</span> <span style="color:#a6e22e">dashboardBody</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tabItems</span>(
+</span></span><span style="display:flex;"><span>    Name1body, Name2body
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="2-server">2. SERVER</h2>
+<p><strong>Server</strong> defines how functions are actually achieved. It is a function which contains the following 2 arguments: <code>SERVER = function(input, output)</code>.</p>
+<p>You can define an UI in server by <code>renderUI()</code> and call it in the UI part to show it.</p>
+<p>Some useful functions:</p>
+<ol>
+<li>
+<p><code>observeEvent(abc, def)</code></p>
+<p>Do <code>def</code> after observing <code>abc</code> happens. For instance <code>abc</code> can be an action button.</p>
+</li>
+<li>
+<p><code>observe(def) %&gt;% bindEvent(abc)</code></p>
+<p>Same as above.</p>
+</li>
+<li>
+<p><code>output$result1 = renderUI(...)</code></p>
+<p>Then call <code>result1</code> in UI part. Same as defining UI directly, but can do more complicated designs (e.g. one input variable depending on another)</p>
+</li>
+<li>
+<p><code>reactive(...)</code></p>
+<p>Wraps a normal expression to create a reactive expression. Often use it to call functions/variables/expressions. (don&rsquo;t know where exactly this should be used)</p>
+</li>
+<li>
+<p><code>req(...)</code></p>
+<p>Ensure that a value is available. For example, <code>req(input$abc)</code> checks if <code>input$abc</code> exists. If not the App will show empty result (without returning error or break).</p>
+</li>
+</ol>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

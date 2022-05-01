@@ -6,7 +6,33 @@
     <description>Recent content in Posts on Zhili&#39;s Website website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R shiny #1</title>
+      <link>/2022/04/02/r-shiny-1/</link>
+      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/04/02/r-shiny-1/</guid>
+      <description>Below uses dataset mtcars as the dataset.
+An R shiny app is constructed by 2 major parts, UI and SERVER: shinyApp(ui = UI, server = SERVER)
+1. UI UI is how your dashboard appears to the user. It can include the following 3 options: UI = dashboardPage(header = Header, sidebar = Sidebar, body = Body)
+  header:
+Header = dashboardHeader(title = &amp;#39;My Title&amp;#39;, titleWidth = 10) Title of the dashboard page (topleft).</description>
+    </item>
+    
+    <item>
+      <title>Using blogdown</title>
+      <link>/2022/04/02/using-blogdown/</link>
+      <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/04/02/using-blogdown/</guid>
+      <description>Reminders about constructing blogs:
+ To generate a new blog:  blogdown::new_post(title = &amp;#39;Post Title&amp;#39;, author = &amp;#39;Your Name&amp;#39;) To include an image, first put the image in a folder (here it&amp;rsquo;s named image) under directory content, and use the following code:  &amp;lt;img alt = &#39;&#39; height=&#39;400&#39; width=&#39;400&#39; src=&#39;/images/Pikachu.png&#39; /&amp;gt;
+To include a link:  [Zhili&#39;s Website](http://zhiliqiao.github.io)
+Zhili&amp;rsquo;s Website
+To rebuild the site and show:  blogdown::build_site() $+$ blogdown::serve_site()</description>
+    </item>
+    
     <item>
       <title>Hello World!</title>
       <link>/2022/03/30/hello-world/</link>
