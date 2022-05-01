@@ -30,7 +30,7 @@ Header = dashboardHeader(title = &amp;#39;My Title&amp;#39;, titleWidth = 10) Ti
  To generate a new blog:  blogdown::new_post(title = &amp;#39;Post Title&amp;#39;, author = &amp;#39;Your Name&amp;#39;) To include an image, first put the image in a folder (here it&amp;rsquo;s named image) under directory content, and use the following code:  &amp;lt;img alt = &#39;&#39; height=&#39;400&#39; width=&#39;400&#39; src=&#39;/images/Pikachu.png&#39; /&amp;gt;
 To include a link:  [Zhili&#39;s Website](http://zhiliqiao.github.io)
 Zhili&amp;rsquo;s Website
-To rebuild the site and show:  blogdown::build_site() $+$ blogdown::serve_site()</description>
+To rebuild the site and show:  blogdown::build_site() + blogdown::serve_site()</description>
     </item>
     
     <item>
