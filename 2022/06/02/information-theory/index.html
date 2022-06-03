@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+<title>Information Theory - Zhili&#39;s Website website</title>
+<meta property="og:title" content="Information Theory - Zhili&#39;s Website website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/Photo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/research/">Research</a></li>
+    
+    <li><a href="/awards/">Awards</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/zhiliqiao">GitHub</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Information Theory</h1>
+
+    
+    <span class="article-date">2022-06-02</span>
+    
+
+    <div class="article-content">
+      <h3 id="shannons-entropy">Shannon&rsquo;s Entropy:</h3>
+<p><code>$H(X) = -\sum_{x \in X} p(x) \log p(x) = E[-\log p(X)]$</code></p>
+<p>(or <code>$H(X) = -\int_{x \in X} p(x) \log p(x) dx$</code> )</p>
+<h3 id="an-intuitive-explaination">An intuitive explaination:</h3>
+<p>For independent observations <code>$x, y$</code>, their joint density is <code>$p(x,y) = p(x)p(y)$</code>.</p>
+<p>Want to obtain their &ldquo;information&rdquo; <code>$h(x)$</code> with the following property:</p>
+<ul>
+<li>
+<p>Monotonic w.r.t. <code>$p(x)$</code>: the higher the density is , the more information we get</p>
+</li>
+<li>
+<p>Always positive</p>
+</li>
+<li>
+<p>Additivity: information gained from <code>$(x,y)$</code> is the sum of information gained from <code>$x$</code> and <code>$y$</code>, i.e. <code>$h(x+y) = h(x) + h(y)$</code></p>
+</li>
+</ul>
+<p>A natural choice will be <code>$h(x) = - \log p(x)$</code>. Thus the entropy for the entire population is the weighted average amount of information: <code>$H(X) = E[-\log p(X)] = -\sum_{x \in X} p(x) \log p(x)$</code></p>
+<h3 id="properties">Properties</h3>
+<p>For discrete distribution taking <code>$K$</code> distinct values, <code>$H(X) \geq \log (K)$</code> with the equal sign holds iff all <code>$K$</code> values have equal probability <code>$\frac{1}{K}$</code></p>
+<h3 id="kl-divergence">KL Divergence</h3>
+<p>Kullback-Lerbler divergence is used to measure relative entropy (distance) between two distributions <code>$p(\cdot), q(\cdot)$</code>:</p>
+<p><code>$KL(p || q) = - \int p(x) \log q(x) dx - [- \int p(x) \log p(x) dx] = -\int p(x) \log \frac{q(x)}{p(x)} dx$</code></p>
+<p>The first part is the &ldquo;entropy&rdquo; of <code>$q(\cdot)$</code> but using <code>$p(\cdot)$</code> as the density, and the second part is the entropy for <code>$p(\cdot)$</code>. That is why it&rsquo;s called <strong>relative entropy</strong>.</p>
+<p>Note:</p>
+<ul>
+<li>
+<p><code>$KL(p || q) = 0$</code> iff <code>$q(x) = p(x)$</code> with probability 1</p>
+</li>
+<li>
+<p>In general, <code>$KL(p||q) \neq KL(q || p)$</code></p>
+</li>
+</ul>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

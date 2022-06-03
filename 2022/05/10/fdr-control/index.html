@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+<title>FDR Control - Zhili&#39;s Website website</title>
+<meta property="og:title" content="FDR Control - Zhili&#39;s Website website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/Photo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/research/">Research</a></li>
+    
+    <li><a href="/awards/">Awards</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/zhiliqiao">GitHub</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">FDR Control</h1>
+
+    
+    <span class="article-date">2022-05-10</span>
+    
+
+    <div class="article-content">
+      <h2 id="what-is-false-discovery-rate-fdr">What is False Discovery Rate (FDR)</h2>
+<table>
+<thead>
+<tr>
+<th>Multiple Tests</th>
+<th>Null</th>
+<th>Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not Reject</td>
+<td>TN</td>
+<td>FN</td>
+</tr>
+<tr>
+<td>Reject</td>
+<td>FP</td>
+<td>TP</td>
+</tr>
+</tbody>
+</table>
+<p><code>$FDR = E[\frac{FP}{FP + TP}]$</code>.</p>
+<p><code>$(FP + TP)$</code> are denoted as &ldquo;discoveries&rdquo;, FDR is the expected rate of false outcomes in all discoveries.</p>
+<h2 id="how-to-control-fdr-the-b-h-procedure">How to Control FDR (the B-H procedure)</h2>
+<p>Suppose a total of <code>m</code> tests are conducted. <strong>Rank them by p-values low to high</strong>, denote as <code>$H_1, ..., H_m$</code> and <code>$p_1, ..., p_m$</code>. Suppose the desired confidence level is <code>$\alpha$</code>.</p>
+<p>Find largest <code>$k$</code> with <code>$p_k \leq \frac{k}{m} * \alpha$</code>. Reject all hypothesis <code>$H_1, ..., H_k$</code>. Then we can have <code>$E(FDR) \leq \frac{m_0}{m} \alpha \leq \alpha$</code> where <code>$m_0$</code> is the number of real null hypothesis.</p>
+<p>Visualization:</p>
+<pre tabindex="0"><code class="language-{r}" data-lang="{r}">library(ggplot2)
+library(dplyr)
+library(gridExtra)
+
+set.seed(111)
+alpha = 0.05
+a = runif(1000)
+b = rexp(500, rate = 60)
+b = b[b&lt;1]
+data = data.frame(value = c(a, b), reject = c(rep(FALSE, length(a)), rep(TRUE, length(b))))
+data = data[order(data$value), ]
+data$x = 1:nrow(data)
+
+BH_max = max(which(data$value &lt;= (0.05 * data$x / nrow(data))))
+
+p1 = ggplot(data) + geom_histogram(aes(x = value, fill = reject), color = &#39;white&#39;) + 
+  labs(title = &#39;p values&#39;) + theme_bw()
+
+p2 = ggplot(data) + 
+  geom_point(aes(x = x, y = value, color = reject)) + 
+  geom_abline(intercept = 0, slope = 0.05/nrow(data), linetype = &#39;dashed&#39;) + 
+  geom_vline(xintercept = BH_max) + 
+  ylim(0, 0.01) + xlim(0, 200) + 
+  labs(title = &#39;0 ~ 200 smallest p values&#39;, y = &#39;p value&#39;) + theme_bw()
+  
+p3 = ggplot(data) + 
+  geom_point(aes(x = x, y = value, color = reject)) + 
+  geom_abline(intercept = 0, slope = 0.05/nrow(data), linetype = &#39;dashed&#39;) + 
+  geom_vline(xintercept = BH_max) + 
+  labs(title = &#39;All p values&#39;, y = &#39;p value&#39;) + theme_bw()
+  
+grid.arrange(p1, p2, p3, nrow = 1)
+</code></pre><h2 id="why-b-h-procedure-works">Why B-H Procedure Works?</h2>
+<p>The Basic idea is that true null hypothesis have p-values following a Uniform(0, 1) distribution, while true alternative hypothesis have p-values skewed to right (dense around zero). In other words p-values of true nulls have pdf&rsquo;s flat, while true alternatives have pdf&rsquo;s decreasing on <code>$[0, 1]$</code></p>
+<p>(B-H procedure ensures the False Discovery Rate at the cost of ignoring many true positive hypothesis. )</p>
+<p>See <a href="https://www.youtube.com/watch?v=K8LQSvtjcEo">this video</a> for intuition. For detailed proof, see <a href="https://www.jstor.org/stable/2346101?seq=1">Benjamini &amp; Hochberg, 1995</a></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

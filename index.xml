@@ -6,7 +6,33 @@
     <description>Recent content on Zhili&#39;s Website website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Information Theory</title>
+      <link>/2022/06/02/information-theory/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/06/02/information-theory/</guid>
+      <description>Shannon&amp;rsquo;s Entropy: $H(X) = -\sum_{x \in X} p(x) \log p(x) = E[-\log p(X)]$
+(or $H(X) = -\int_{x \in X} p(x) \log p(x) dx$ )
+An intuitive explaination: For independent observations $x, y$, their joint density is $p(x,y) = p(x)p(y)$.
+Want to obtain their &amp;ldquo;information&amp;rdquo; $h(x)$ with the following property:
+  Monotonic w.r.t. $p(x)$: the higher the density is , the more information we get
+  Always positive
+  Additivity: information gained from $(x,y)$ is the sum of information gained from $x$ and $y$, i.</description>
+    </item>
+    
+    <item>
+      <title>FDR Control</title>
+      <link>/2022/05/10/fdr-control/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/05/10/fdr-control/</guid>
+      <description>What is False Discovery Rate (FDR)    Multiple Tests Null Alternative     Not Reject TN FN   Reject FP TP    $FDR = E[\frac{FP}{FP + TP}]$.
+$(FP + TP)$ are denoted as &amp;ldquo;discoveries&amp;rdquo;, FDR is the expected rate of false outcomes in all discoveries.
+How to Control FDR (the B-H procedure) Suppose a total of m tests are conducted. Rank them by p-values low to high, denote as $H_1, .</description>
+    </item>
+    
     <item>
       <title>How to write a new post</title>
       <link>/2022/04/02/using-blogdown/</link>
