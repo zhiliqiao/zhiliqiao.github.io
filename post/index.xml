@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Zhili&#39;s Website website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Odds Ratio</title>
+      <link>/2022/06/03/odds-ratio/</link>
+      <pubDate>Fri, 03 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/06/03/odds-ratio/</guid>
+      <description>Consider the following contingency table for a retrospective study:
+   \ Disease(Yes) Disease(No) Total     Treatment 1 a b a+b   Treatment 2 c d c+d    There are two statistics of interest:
+  Relative Risk (RR): $\frac{a/(a+b)}{c/(c+b)}$
+  Odds ratios (OR): $\frac{a/b}{c/d}$
+  Relative risk is easy to understand: it&amp;rsquo;s the ratio of disease probability between two treatment groups.</description>
+    </item>
+    
     <item>
       <title>Information Theory</title>
       <link>/2022/06/02/information-theory/</link>

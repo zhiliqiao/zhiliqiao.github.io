@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.96.0" />
+
+
+<title>Odds Ratio - Zhili&#39;s Website website</title>
+<meta property="og:title" content="Odds Ratio - Zhili&#39;s Website website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/Photo.jpg"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="/research/">Research</a></li>
+    
+    <li><a href="/awards/">Awards</a></li>
+    
+    <li><a href="/cv/">CV</a></li>
+    
+    <li><a href="https://github.com/zhiliqiao">GitHub</a></li>
+    
+    <li><a href="/contact/">Contact</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">Odds Ratio</h1>
+
+    
+    <span class="article-date">2022-06-03</span>
+    
+
+    <div class="article-content">
+      <p>Consider the following contingency table for a <strong>retrospective study</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">\</th>
+<th style="text-align:right">Disease(Yes)</th>
+<th style="text-align:right">Disease(No)</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Treatment 1</td>
+<td style="text-align:right">a</td>
+<td style="text-align:right">b</td>
+<td style="text-align:right">a+b</td>
+</tr>
+<tr>
+<td style="text-align:right">Treatment 2</td>
+<td style="text-align:right">c</td>
+<td style="text-align:right">d</td>
+<td style="text-align:right">c+d</td>
+</tr>
+</tbody>
+</table>
+<p>There are two statistics of interest:</p>
+<ul>
+<li>
+<p>Relative Risk (RR): <code>$\frac{a/(a+b)}{c/(c+b)}$</code></p>
+</li>
+<li>
+<p>Odds ratios (OR): <code>$\frac{a/b}{c/d}$</code></p>
+</li>
+</ul>
+<p>Relative risk is easy to understand: it&rsquo;s the ratio of disease probability between two treatment groups. But why care about odds ratio?</p>
+<p>It has something to do with the experimental design:</p>
+<h2 id="retrospective-study">Retrospective Study</h2>
+<p>A retrospective study collects certain amount of random samples <strong>in both treatment groups</strong>.</p>
+<p>Below is a retrospective study example: We collect 1000 random samples from BMI&gt;30 people, 1000 from BMI&lt;30, and see how many of them have diabetes</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">\</th>
+<th style="text-align:right">diabetes(Yes)</th>
+<th style="text-align:right">diabetes(No)</th>
+<th style="text-align:right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">BMI &gt; 30</td>
+<td style="text-align:right">350</td>
+<td style="text-align:right">650</td>
+<td style="text-align:right">1000</td>
+</tr>
+<tr>
+<td style="text-align:right">BMI &lt; 30</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">900</td>
+<td style="text-align:right">1000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>In retrospective studies, the relative risk (RR) makes sense.</strong></p>
+<h2 id="case-control-study">Case control Study</h2>
+<p>A case control study collects certain amount of random samples <strong>in both disease status</strong>.</p>
+<p>Case control study is usually designed <strong>when the disease proportion is very low</strong>. Consider some type of cancer which has 0.1% occurrence in the treatment 1 population. Then to get a decent amount of positive patients, say 10, we are expected to collect 10000 samples, which is very time/money consuming. Those we instead sample certain number of observations directly from the disease population (e.g. from hospital), and see how many are under treatment 1.</p>
+<p>Below is a case control study example: we collect 200 random samples from those with lung cancer, 800 from those without, and see how many of them are in treatment 1 (live in city):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">\</th>
+<th style="text-align:right">lung cancer(Yes)</th>
+<th style="text-align:right">lung cancer(No)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">city</td>
+<td style="text-align:right">150</td>
+<td style="text-align:right">500</td>
+</tr>
+<tr>
+<td style="text-align:right">countryside</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">300</td>
+</tr>
+<tr>
+<td style="text-align:right">Total</td>
+<td style="text-align:right">200</td>
+<td style="text-align:right">800</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The risks or relative risk (RR) makes no sense here</strong>. The RR here is <code>$\frac{150/(150+500)}{50/(50+300)} = 1.61$</code>; but if we only collect 100 samples instead of 800 in the no lung cancer group it became <code>$\frac{150/(150+50)}{50/(50+30)} = 1.2$</code>. In other words it is NOT consistent with sample size.</p>
+<p><strong>But the odds ratio works in this case</strong>. It is consistent with the sample size.</p>
+<p>Further, if the disease rate is very low in both groups, then obviously OR can approximate RR very well.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>For retrospective studies, use RR (can also use OR).</p>
+<p>For case control study, use OR. And if the disease probability is low, can use OR to approximate RR.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
