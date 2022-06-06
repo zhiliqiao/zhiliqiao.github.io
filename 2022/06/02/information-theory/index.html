@@ -6,8 +6,8 @@
 <meta name="generator" content="Hugo 0.96.0" />
 
 
-<title>Information Theory - Zhili&#39;s Website website</title>
-<meta property="og:title" content="Information Theory - Zhili&#39;s Website website">
+<title>Entropy - Zhili&#39;s Website website</title>
+<meta property="og:title" content="Entropy - Zhili&#39;s Website website">
 
 
   <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -66,7 +66,7 @@
     <span class="article-duration">2 min read</span>
     
 
-    <h1 class="article-title">Information Theory</h1>
+    <h1 class="article-title">Entropy</h1>
 
     
     <span class="article-date">2022-06-02</span>
@@ -92,7 +92,7 @@
 </ul>
 <p>A natural choice will be <code>$h(x) = - \log p(x)$</code>. Thus the entropy for the entire population is the weighted average amount of information: <code>$H(X) = E[-\log p(X)] = -\sum_{x \in X} p(x) \log p(x)$</code></p>
 <h2 id="properties">Properties</h2>
-<p>For discrete distribution taking <code>$K$</code> distinct values, <code>$H(X) \geq \log (K)$</code> with the equal sign holds iff all <code>$K$</code> values have equal probability <code>$\frac{1}{K}$</code></p>
+<p>For discrete distribution taking <code>$K$</code> distinct values, <code>$H(X) \leq \log (K)$</code> with the equal sign holds iff all <code>$K$</code> values have equal probability <code>$\frac{1}{K}$</code></p>
 <h2 id="kl-divergence">KL Divergence</h2>
 <p>Kullback-Lerbler divergence is used to measure relative entropy (distance) between two distributions <code>$p(\cdot), q(\cdot)$</code>:</p>
 <p><code>$KL(p || q) = - \int p(x) \log q(x) dx - [- \int p(x) \log p(x) dx] = -\int p(x) \log \frac{q(x)}{p(x)} dx$</code></p>
